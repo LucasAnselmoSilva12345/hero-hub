@@ -63,17 +63,25 @@ export function SuperheroList() {
   }, []);
 
   return (
-    <div>
-      <ul>
+    <div className="py-4">
+      <ul className="grid grid-cols-1 lg:grid-cols-5">
         {superheroes.map((superhero) => (
           <li
             key={superhero.id}
-            className={`border ${calculateBorderClass(superhero.powerstats)}`}
+            className="p-2 text-center cursor-pointer transition-all duration-200 hover:scale-105"
           >
-            <img src={superhero.images.sm} alt={superhero.name} />
-            <h2>
+            <img
+              src={superhero.images.sm}
+              alt={superhero.name}
+              className={`mx-auto my-0 p-1 border ${calculateBorderClass(
+                superhero.powerstats
+              )}`}
+            />
+            <h2 className="font-medium text-gray-200">
               {superhero.name} -{' '}
-              {calculateTotalPowerstats(superhero.powerstats)}
+              <span className="font-light">
+                {calculateTotalPowerstats(superhero.powerstats)}
+              </span>
             </h2>
           </li>
         ))}
