@@ -19,6 +19,7 @@ interface SuperheroProps {
 
 export function SuperheroList() {
   const [superheroes, setSuperheroes] = useState<SuperheroProps[]>([]);
+  const [filter, setFilter] = useState<string>('');
 
   function calculateBorderClass(powerstats: SuperheroProps['powerstats']) {
     const totalPowerstats = calculateTotalPowerstats(powerstats);
@@ -64,27 +65,38 @@ export function SuperheroList() {
 
   return (
     <div className="py-4">
+      <input
+        type="text"
+        className="bg-transparent text-gray-200 border border-gray-700 p-2 rounded-md focus:outline focus:outline-blue-700"
+        placeholder="search superhero"
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+      />
       <ul className="grid grid-cols-1 lg:grid-cols-5">
-        {superheroes.map((superhero) => (
-          <li
-            key={superhero.id}
-            className="p-2 text-center cursor-pointer transition-all duration-200 hover:scale-105"
-          >
-            <img
-              src={superhero.images.sm}
-              alt={superhero.name}
-              className={`mx-auto my-0 p-1 border ${calculateBorderClass(
-                superhero.powerstats
-              )}`}
-            />
-            <h2 className="font-medium text-gray-200">
-              {superhero.name} -{' '}
-              <span className="font-light">
-                {calculateTotalPowerstats(superhero.powerstats)}
-              </span>
-            </h2>
-          </li>
-        ))}
+        {superheroes
+          .filter((superhero) =>
+            superhero.name.toLowerCase().includes(filter.toLowerCase())
+          )
+          .map((superhero) => (
+            <li
+              key={superhero.id}
+              className="p-2 text-center cursor-pointer transition-all duration-200 hover:scale-105"
+            >
+              <img
+                src={superhero.images.sm}
+                alt={superhero.name}
+                className={`mx-auto my-0 p-1 border ${calculateBorderClass(
+                  superhero.powerstats
+                )}`}
+              />
+              <h2 className="font-medium text-gray-200">
+                {superhero.name} -{' '}
+                <span className="font-light">
+                  {calculateTotalPowerstats(superhero.powerstats)}
+                </span>
+              </h2>
+            </li>
+          ))}
       </ul>
     </div>
   );
