@@ -1,27 +1,98 @@
-# React + TypeScript + Vite
+# Hero-Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Hero-Hub, one website responsible for showed the most popular superheroes of the world.
 
-Currently, two official plugins are available:
+### Building a project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+These projects were built with these technologies:
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/pt-BR/)
+- [Jest Environment Jsdom](https://jestjs.io/docs/next/tutorial-jquery)
+- [Testing-library - jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/)
+- [Testing-library - react](https://testing-library.com/)
+- [Testing-library - user-event](https://testing-library.com/docs/ecosystem-user-event/)
+- [TailwindCss](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+- [Node](https://nodejs.org/en) - version 18.12.1
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### How to execute this project
 
-- Configure the top-level `parserOptions` property like this:
+**To run the application, be sure you have [Git](https://git-scm.com/) installed on your machine**.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+1. Make clone this repository through the command:
+
+```sh
+
+$ git@github.com:LucasAnselmoSilva12345/John-Task-List.git
+
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. After performing the clone the project, still in the terminal, enter the project folder:
+
+```sh
+
+$ cd John-Task-List
+
+```
+
+Note: To perform the command execution in the next step, ensure that you have [node](https://nodejs.org/en/) installed on your machine to be able to use `npm`. Or, if you prefer to install the dependencies via `yarn`, make sure you have [yarn](https://yarnpkg.com/) installed on your machine.
+
+3. After entering the project folder, run the command:
+
+```sh
+
+$ npm install
+
+or
+
+$ yarn
+
+```
+
+To perform the installation of dependencies.
+
+4. After installing the dependencies and still in the project folder vide terminal, run the command:
+
+```sh
+
+$ code .
+
+```
+
+To open the project in the Visual Studio Code.
+
+5. After opening the project in your Visual Studio Code, go back to the terminal screen, and run the command:
+
+```sh
+
+$ npm run dev
+
+or
+
+yarn dev
+
+```
+
+To execute the project
+
+6. Once this is done, just open the project in your browser, through the link:
+
+```sh
+
+$ http://localhost:5173/
+
+```
+
+To execute unit or integration tests  
+
+7. Execute this command in your terminal:
+
+```sh
+$ npm run test
+
+or
+
+yarn test
+```
