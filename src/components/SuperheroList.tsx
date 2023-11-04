@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { api } from '../api/azapfy';
+import { SuperheroFilter } from './SuperheroFilter';
 
 interface SuperheroProps {
   id: number;
@@ -65,13 +66,7 @@ export function SuperheroList() {
 
   return (
     <div className="py-4">
-      <input
-        type="text"
-        className="bg-transparent text-gray-200 border border-gray-700 p-2 rounded-md focus:outline focus:outline-blue-700"
-        placeholder="search superhero"
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
-      />
+      <SuperheroFilter filter={filter} onFilterChange={setFilter} />
       <ul className="grid grid-cols-1 lg:grid-cols-5">
         {superheroes
           .filter((superhero) =>
