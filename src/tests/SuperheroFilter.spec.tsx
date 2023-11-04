@@ -7,7 +7,7 @@ describe('Superhero Filter', () => {
     render(
       <SuperheroFilter
         filter={''}
-        onFilterChange={function (filter: string): void {
+        onFilterChange={function (): void {
           throw new Error('Function not implemented.');
         }}
       />
