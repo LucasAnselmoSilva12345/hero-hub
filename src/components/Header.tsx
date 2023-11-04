@@ -12,7 +12,7 @@ export function Header() {
                 to="/"
                 className="border p-2 transition-opacity duration-200 hover:opacity-50"
               >
-                Cartas
+                Cards
               </Link>
             </li>
           </ul>
