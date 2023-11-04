@@ -52,4 +52,20 @@ describe('API superheroes', () => {
       expect(superheroesElements).toHaveLength(563);
     });
   });
+
+  it('should show filter superhero', async () => {
+    mock
+      .onGet('http://homologacao3.azapfy.com.br/api/ps/metahumans')
+      .reply(200, mockData);
+
+    render(<SuperheroList />);
+
+    await waitFor(() => {
+      const superheroesElements = screen.getAllByRole('listitem');
+      expect(superheroesElements).toHaveLength(563);
+    });
+
+    const input = screen.getByPlaceholderText(/search superhero/i);
+    expect(input).toBeInTheDocument();
+  });
 });
