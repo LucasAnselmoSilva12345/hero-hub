@@ -1,17 +1,17 @@
 import { screen, render } from '@testing-library/react';
 import { RoutesApp } from '../routes';
 
-describe('Header', () => {
-  it('should show the name of website', () => {
+describe('Header Component', () => {
+  beforeEach(() => {
     render(<RoutesApp />);
-
-    const homeTitle = screen.getByText(/Hero-Hub/i);
-    expect(homeTitle).toBeInTheDocument();
   });
 
-  it('should header links have the correct href', () => {
-    render(<RoutesApp />);
+  it('should display the website name', () => {
+    const websiteName = screen.getByText(/Hero-Hub/i);
+    expect(websiteName).toBeInTheDocument();
+  });
 
+  it('should have the correct href for header links', () => {
     const cardsLink = screen.getByText('Cards');
     expect(cardsLink).toHaveAttribute('href', '/');
   });
