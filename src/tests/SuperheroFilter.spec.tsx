@@ -1,19 +1,20 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { screen, render } from '@testing-library/react';
 import { SuperheroFilter } from '../components/SuperheroFilter';
 
-describe('Superhero Filter', () => {
-  it('should show filter placeholder on superhero input', async () => {
+describe('SuperheroFilter Component', () => {
+  it('should display placeholder in superhero input field', async () => {
     render(
       <SuperheroFilter
         filter={''}
-        onFilterChange={function (): void {
+        onFilterChange={function handleFilterChange(): void {
           throw new Error('Function not implemented.');
         }}
       />
     );
 
-    const input = screen.getByPlaceholderText(/Search by superhero.../i);
-    expect(input).toBeInTheDocument();
+    const superheroInput = screen.getByPlaceholderText(
+      /Search by superhero.../i
+    );
+    expect(superheroInput).toBeInTheDocument();
   });
 });
