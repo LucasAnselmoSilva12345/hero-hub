@@ -17,20 +17,17 @@ const mockData = [
       power: 24,
       combat: 64,
     },
+    appearance: {
+      race: 'Human',
+    },
+    biography: {
+      fullName: 'Richard Milhouse Jones',
+      alterEgos: 'No alter egos found.',
+      firstAppearance: 'Hulk Vol 2 #2 (April, 2008) (as A-Bomb)',
+      publisher: 'Marvel Comics',
+    },
     images: {
       sm: 'https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/1-a-bomb.jpg',
-    },
-  },
-  {
-    id: 2,
-    name: 'Abe Sapien',
-    powerstats: {
-      intelligence: 88,
-      strength: 28,
-      speed: 35,
-      durability: 65,
-      power: 100,
-      combat: 85,
     },
   },
 ];
@@ -39,17 +36,30 @@ beforeEach(() => {
   mock.reset();
 });
 
-describe('API superheroes', () => {
-  it('should render API superheroes', async () => {
-    mock
-      .onGet('http://homologacao3.azapfy.com.br/api/ps/metahumans')
-      .reply(200, mockData);
+describe('Superhero Component', () => {
+  it('should render superhero details fetched from API', async () => {
+    const apiUrl = 'http://homologacao3.azapfy.com.br/api/ps/metahumans';
+    mock.onGet(apiUrl).reply(200, mockData);
 
     render(<SuperheroList />);
 
     await waitFor(() => {
-      const superheroesElements = screen.getAllByRole('listitem');
-      expect(superheroesElements).toHaveLength(563);
+      const getByTextContent = (text: string) => screen.getAllByText(text)[0];
+
+      expect(getByTextContent('A-Bomb')).toBeInTheDocument();
+      expect(getByTextContent('38')).toBeInTheDocument();
+      expect(getByTextContent('100')).toBeInTheDocument();
+      expect(getByTextContent('17')).toBeInTheDocument();
+      expect(getByTextContent('80')).toBeInTheDocument();
+      expect(getByTextContent('24')).toBeInTheDocument();
+      expect(getByTextContent('64')).toBeInTheDocument();
+      expect(getByTextContent('Human')).toBeInTheDocument();
+      expect(getByTextContent('Richard Milhouse Jones')).toBeInTheDocument();
+      expect(getByTextContent('No alter egos found.')).toBeInTheDocument();
+      expect(
+        getByTextContent('Hulk Vol 2 #2 (April, 2008) (as A-Bomb)')
+      ).toBeInTheDocument();
+      expect(getByTextContent('Marvel Comics')).toBeInTheDocument();
     });
   });
 });
