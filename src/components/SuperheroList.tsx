@@ -13,50 +13,23 @@ interface SuperheroProps {
     power: number;
     combat: number;
   };
+  appearance: {
+    race: string;
+  };
+  biography: {
+    fullName: string;
+    alterEgos: string;
+    firstAppearance: string;
+    publisher: string;
+  };
   images: {
     sm: string;
   };
 }
 
-enum BorderClass {
-  Gray = 'border-gray-500',
-  Green = 'border-green-500',
-  Violet = 'border-violet-500',
-  Orange = 'border-orange-500',
-}
-
 export function SuperheroList() {
   const [superheroes, setSuperheroes] = useState<SuperheroProps[]>([]);
   const [filter, setFilter] = useState<string>('');
-
-  function calculateBorderClass(
-    powerstats: SuperheroProps['powerstats']
-  ): BorderClass {
-    const totalPowerstats = calculateTotalPowerstats(powerstats);
-
-    if (totalPowerstats >= 100 && totalPowerstats <= 200) {
-      return BorderClass.Gray;
-    }
-
-    if (totalPowerstats > 200 && totalPowerstats <= 300) {
-      return BorderClass.Green;
-    }
-
-    if (totalPowerstats > 300 && totalPowerstats <= 400) {
-      return BorderClass.Violet;
-    }
-
-    return BorderClass.Orange;
-  }
-
-  function calculateTotalPowerstats(
-    powerstats: SuperheroProps['powerstats']
-  ): number {
-    const { intelligence, strength, speed, durability, power, combat } =
-      powerstats;
-
-    return intelligence + strength + speed + durability + power + combat;
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -93,16 +66,25 @@ export function SuperheroList() {
             <img
               src={superhero.images.sm}
               alt={superhero.name}
-              className={`mx-auto my-0 p-1 border ${calculateBorderClass(
-                superhero.powerstats
-              )}`}
+              className="mx-auto my-0 p-1 border"
             />
-            <h2 className="font-medium text-gray-200">
-              {superhero.name} -{' '}
-              <span className="font-light">
-                {calculateTotalPowerstats(superhero.powerstats)}
-              </span>
-            </h2>
+            <h2 className="font-medium text-gray-200">{superhero.name}</h2>
+            <div>
+              <ul>
+                <li>{superhero.powerstats.intelligence}</li>
+                <li>{superhero.powerstats.strength}</li>
+                <li>{superhero.powerstats.speed}</li>
+                <li>{superhero.powerstats.durability}</li>
+                <li>{superhero.powerstats.power}</li>
+                <li>{superhero.powerstats.combat}</li>
+              </ul>
+            </div>
+
+            <h4>{superhero.appearance.race}</h4>
+            <h4>{superhero.biography.fullName}</h4>
+            <h4>{superhero.biography.alterEgos}</h4>
+            <h4>{superhero.biography.firstAppearance}</h4>
+            <h4>{superhero.biography.publisher}</h4>
           </li>
         ))}
       </ul>
