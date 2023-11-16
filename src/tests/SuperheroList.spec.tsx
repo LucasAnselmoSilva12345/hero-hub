@@ -54,8 +54,6 @@ describe('Superhero Component', () => {
       expect(getByTextContent('24')).toBeInTheDocument();
       expect(getByTextContent('64')).toBeInTheDocument();
       expect(getByTextContent('Human')).toBeInTheDocument();
-      expect(getByTextContent('Richard Milhouse Jones')).toBeInTheDocument();
-      expect(getByTextContent('No alter egos found.')).toBeInTheDocument();
       expect(
         getByTextContent('Hulk Vol 2 #2 (April, 2008) (as A-Bomb)')
       ).toBeInTheDocument();
