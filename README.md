@@ -1,6 +1,10 @@
 # Hero-Hub
 
-This is a Hero-Hub, one website responsible for showed the most popular superheroes of the world.
+Welcome to HeroHub, your definitive portal to explore the vast and diverse universe of superheroes! Imagine a world where all the legends, myths, and powers come together on an accessible platform, a central point where the history and feats of each hero come to life.
+
+HeroHub was created for superhero enthusiasts, whether they're newcomers to the comic book universe or long-time veterans. Here, every click reveals a treasure trove of detailed information about a myriad of legendary characters. From classic icons to newly emerged ones, all publishers have their place in this comprehensive catalog.
+
+The essence of HeroHub lies in the wealth of details about each presented superhero. Explore detailed profiles, delve into unique abilities, and discover the incredible comics where these heroes made their mark. Whether flying through the skies with flaming capes or unraveling mysteries with brilliant intellects, each hero has a story to tell and a legacy to leave behind.
 
 ### Building a project
 
