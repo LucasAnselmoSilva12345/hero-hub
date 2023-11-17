@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../api/azapfy';
 import { SuperheroFilter } from './SuperheroFilter';
-import { SuperheroStatsCard } from './SuperheroStatsCard';
+import { StatsCard } from './SuperheroStatsCard/StatsCard';
 import { SuperheroProps } from '../types/SuperheroProps';
 
 export function SuperheroList() {
@@ -36,7 +36,7 @@ export function SuperheroList() {
       <SuperheroFilter filter={filter} onFilterChange={setFilter} />
       <ul className="py-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {filteredSuperheroes.map((superhero) => (
-          <SuperheroStatsCard
+          <StatsCard
             id={superhero.id}
             name={superhero.name}
             images={superhero.images}
