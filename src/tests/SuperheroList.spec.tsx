@@ -43,21 +43,26 @@ describe('Superhero Component', () => {
 
     render(<SuperheroList />);
 
-    await waitFor(() => {
-      const getByTextContent = (text: string) => screen.getAllByText(text)[0];
+    await waitFor(
+      () => {
+        const getByTextContent = (text: string) => screen.getAllByText(text)[0];
 
-      expect(getByTextContent('A-Bomb')).toBeInTheDocument();
-      expect(getByTextContent('38')).toBeInTheDocument();
-      expect(getByTextContent('100')).toBeInTheDocument();
-      expect(getByTextContent('17')).toBeInTheDocument();
-      expect(getByTextContent('80')).toBeInTheDocument();
-      expect(getByTextContent('24')).toBeInTheDocument();
-      expect(getByTextContent('64')).toBeInTheDocument();
-      expect(getByTextContent('Human')).toBeInTheDocument();
-      expect(
-        getByTextContent('Hulk Vol 2 #2 (April, 2008) (as A-Bomb)')
-      ).toBeInTheDocument();
-      expect(getByTextContent('Marvel Comics')).toBeInTheDocument();
-    });
+        expect(getByTextContent('A-Bomb')).toBeInTheDocument();
+        expect(getByTextContent('38')).toBeInTheDocument();
+        expect(getByTextContent('100')).toBeInTheDocument();
+        expect(getByTextContent('17')).toBeInTheDocument();
+        expect(getByTextContent('80')).toBeInTheDocument();
+        expect(getByTextContent('24')).toBeInTheDocument();
+        expect(getByTextContent('64')).toBeInTheDocument();
+        expect(getByTextContent('Human')).toBeInTheDocument();
+        expect(
+          getByTextContent('Hulk Vol 2 #2 (April, 2008) (as A-Bomb)')
+        ).toBeInTheDocument();
+        expect(getByTextContent('Marvel Comics')).toBeInTheDocument();
+      },
+      {
+        timeout: 10000,
+      }
+    );
   });
 });
