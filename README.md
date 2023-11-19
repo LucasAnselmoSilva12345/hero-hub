@@ -6,6 +6,10 @@ HeroHub was created for superhero enthusiasts, whether they're newcomers to the 
 
 The essence of HeroHub lies in the wealth of details about each presented superhero. Explore detailed profiles, delve into unique abilities, and discover the incredible comics where these heroes made their mark. Whether flying through the skies with flaming capes or unraveling mysteries with brilliant intellects, each hero has a story to tell and a legacy to leave behind.
 
+## Project presentation
+
+- [Hero Hub - Your definitive portal to explore the vast and diverse universe of superheroes!](https://youtu.be/W1D4dyVjGLY)
+
 ### Building a project
 
 These projects were built with these technologies:
